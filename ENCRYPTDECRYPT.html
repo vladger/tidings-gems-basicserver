@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt/Decrypt Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        textarea, input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .result {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Encrypt/Decrypt Tool</h1>
+        <form id="cryptForm">
+            <label for="cryptKey">CryptKey:</label>
+            <input type="text" id="cryptKey" placeholder="Enter CryptKey" required>
+
+            <label for="inputString">Input String:</label>
+            <textarea id="inputString" rows="4" placeholder="Enter the string to encrypt/decrypt" required></textarea>
+
+            <label for="action">Action:</label>
+            <select id="action">
+                <option value="encrypt">Encrypt</option>
+                <option value="decrypt">Decrypt</option>
+            </select>
+
+            <button type="submit">Process</button>
+        </form>
+
+        <div class="result">
+            <h2>Result:</h2>
+            <pre id="resultOutput"></pre>
+        </div>
+    </div>
+
+    <script>
+        // Custom ord and chr functions
+        function ord(str) {
+            var ch = str.charCodeAt(0);
+            return ch > 0xFF ? ch - 0x350 : ch;
+        }
+
+        function chr(ascii) {
+            return String.fromCharCode(ascii);
+        }
+
+        // Crypt object with encrypt and decrypt functions
+        var Crypt = {
+            encrypt: function(str, key) {
+                if (key == null) { key = ''; }
+                var result = '';
+                for (var i = 0; i < str.length; i++) {
+                    var fchar = str.substr(i, 1);
+                    var keychar = key.substr((i % key.length) - 1, 1);
+                    var ordChar = ord(fchar);
+                    var ordKeychar = ord(keychar);
+                    var sum = ordChar + ordKeychar;
+                    fchar = chr(sum);
+                    result = result + fchar;
+                }
+                return btoa(result); // Base64 encode
+            },
+
+            decrypt: function(str, key) {
+                if (key == null) { key = ''; }
+                var result = '';
+                str = atob(str); // Base64 decode
+                for (var i = 0; i < str.length; i++) {
+                    var fchar = str.substr(i, 1);
+                    var keychar = key.substr((i % key.length) - 1, 1);
+                    var ordChar = ord(fchar);
+                    var ordKeychar = ord(keychar);
+                    var sum = ordChar - ordKeychar;
+                    fchar = chr(sum);
+                    result = result + fchar;
+                }
+                return result;
+            }
+        };
+
+        // Handle form submission
+        document.getElementById('cryptForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form inputs
+            var cryptKey = document.getElementById('cryptKey').value;
+            var inputString = document.getElementById('inputString').value;
+            var action = document.getElementById('action').value;
+
+            // Perform encryption or decryption
+            var result;
+            if (action === 'encrypt') {
+                result = Crypt.encrypt(inputString, cryptKey);
+            } else if (action === 'decrypt') {
+                result = Crypt.decrypt(inputString, cryptKey);
+            }
+
+            // Display the result
+            document.getElementById('resultOutput').textContent = result;
+        });
+    </script>
+</body>
+</html>
