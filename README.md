@@ -10,11 +10,19 @@ This server is supposed to be used with the encryption turned off in the client 
 3) Launch the client with index.html embed page in a browser that supports Flash
 # Progress
 ✅Request encryption mechanism (encryption/decryption tool)
+
 ✅Fake authorization (getting to the main menu)
+
 ✅Archived user state loading
+
 ✅Level loading (currently only level 1 and 2 saved, will be saving more levels, there are 19900 levels on servers)
+
 ❌Level finishing (currently hangs, needs adding handlers)
+
 ❌Social friends
+
 ❌VK/OK/Mail API working right / replacement
+
 ❌Saving and loading data from database
+
 ❌HTML5 client support (untested, hard to download)
