@@ -4,7 +4,10 @@ A basic PHP server reverse engineering attempt and archival project for Gems soc
 # Findings
 Unmodified SWF sends all requests to API backend encrypted, using its own encryption mechanism. By decompiling the Main SWF (or output113.js in HTML5 client), we can get the encryption key and the encrypt/decrypt functions (a JS-based decryption tool is ENCRYPTDECRYPT.html).
 This server is supposed to be used with the encryption turned off in the client (by decompiling SWF and disabling Crypt), when it's off, the client sends POST requests with parameters in body.
-A level downloader script is now available.
+A level downloader script is now available. 
+
+Dummy scripts: levelFinish.js (makes the game go back to levels on level finish), getVipScore.js, levelGetDecEnergy.js (makes the game reset the energy counter to 1 after selecting level), decBooster.js (deleted) (sets all booster count to 0)
+
 # Setup guide
 1) Install any webserver software with PHP support, set the public_html to make sure the server.php is on top
 2) Use hosts or Fiddler, or other web proxy tool, to redirect requests from tidings.su to your server:
@@ -24,7 +27,7 @@ A level downloader script is now available.
 
 ℹ️ LEVEL ARCHIVAL PROGRESS: 0.5% (1000/199900)
 
-❌Level finishing (currently hangs, needs adding handlers)
+🔄️Level finishing (levelFinish.js (makes the game go back to levels on level finish))
 
 ❌Social friends
 
