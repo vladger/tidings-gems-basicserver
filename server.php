@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         switch ($action) {
             case 'auth':
             case 'getVipScore':
+			case 'levelFinish':
+			case 'levelGetDecEnergy':
                 // Respond with the corresponding JavaScript file
                 $filePath = __DIR__ . '/' . $action . '.js';
                 if (file_exists($filePath)) {
