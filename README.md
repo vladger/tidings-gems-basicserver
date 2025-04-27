@@ -27,7 +27,11 @@ Dummy scripts: levelFinish.js (makes the game go back to levels on level finish)
 
 ℹ️ LEVEL ARCHIVAL PROGRESS: 0.5% (1000/199900)
 
-🔄️Level finishing (levelFinish.js (makes the game go back to levels on level finish))
+ℹ️ PUZZLE ARCHIVAL WILL NOT BE DONE (thousands of same looping 450x450 animal pictures, btw levelfinish.js has fixed puzzle1)
+
+✅Level finishing (real levelFinish.js (the star screen is now appearing with fixed dummy data, Main.swf caches stars until closed))
+
+✅Puzzle photo loading (/puzzles folder)
 
 ❌Social friends
 
