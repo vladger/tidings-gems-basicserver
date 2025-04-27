@@ -17,7 +17,7 @@ This server is supposed to be used with the encryption turned OFF in the client 
    If you want the background audio to work, redirect the folder /sounds to /www/sounds
    OR decompile the client Main.swf, replacing the tidings.su links to your IP with server running.
 4) (Optional) Extract 1000 levels pack from zip, copy all .js files to /levels dir on server. You can download more levels from prod server using the leveldownloader.py script. After updating the levels, change the ml value in auth.js to your amount of downloaded levels count minus one.
-5) Launch the client with index.html embed page in a browser that supports Flash
+5) Launch the client with index.html embed page in a browser that supports Flash OR open SWF in Flash Player Projector
 # Progress
 ✅Request encryption mechanism (encryption/decryption tool)
 
