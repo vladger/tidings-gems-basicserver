@@ -29,7 +29,7 @@ This server is supposed to be used with the encryption turned OFF in the client 
 
 ℹ️ LEVEL ARCHIVAL PROGRESS: 0.5% (1000/199900)
 
-ℹ️ PUZZLE ARCHIVAL WILL NOT BE DONE (thousands of same looping 450x450 animal pictures, btw levelfinish.js has fixed puzzle1)
+ℹ️ PUZZLE ARCHIVAL WILL NOT BE DONE (2384 of same looping 450x450 animal pictures, btw levelfinish.js has fixed puzzle1)
 
 ✅Level finishing (real levelFinish.js (the star screen is now appearing with fixed dummy data, Main.swf caches stars until closed))
 
