@@ -35,6 +35,8 @@ This server is supposed to be used with the encryption turned OFF in the client 
 
 ✅Puzzle photo loading (/puzzles folder)
 
+🔄️Sound loading (most archived now)
+
 ❌Social friends
 
 ❌VK/OK/Mail API working right / replacement
