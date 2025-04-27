@@ -3,10 +3,12 @@ NOTE: this server uses actual OKRU user data, but the session had expired long a
 A basic PHP server reverse engineering attempt and archival project for Gems social match-3 game known as "Твои Сокровища" by Dind Games, for the Flash client. One of the older social games.
 # Findings
 Unmodified SWF sends all requests to API backend encrypted, using its own encryption mechanism. By decompiling the Main SWF (or output113.js in HTML5 client), we can get the encryption key and the encrypt/decrypt functions (a JS-based decryption tool is ENCRYPTDECRYPT.html).
-This server is supposed to be used with the encryption turned off in the client (by decompiling SWF and disabling Crypt), when it's off, the client sends POST requests with parameters in body.
 A level downloader script is now available. 
 
-Dummy scripts: levelFinish.js (makes the game go back to levels on level finish), getVipScore.js, levelGetDecEnergy.js (makes the game reset the energy counter to 1 after selecting level), decBooster.js (deleted) (sets all booster count to 0)
+Dummy scripts: levelFinish_dummy.js (makes the game go back to levels on level finish), getVipScore.js, levelGetDecEnergy.js (makes the game reset the energy counter to 1 after selecting level), decBooster.js (deleted) (if decBooster.js empty exists, sets all booster count to 0)
+
+# IMPORTANT NOTICE
+This server is supposed to be used with the encryption turned OFF in the client Main.swf (by decompiling SWF and disabling Crypt), when it's off, the client sends POST requests with parameters in body.
 
 # Setup guide
 1) Install any webserver software with PHP support, set the public_html to make sure the server.php is on top
